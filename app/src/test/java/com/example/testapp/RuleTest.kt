@@ -2,6 +2,7 @@ package com.example.testapp
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
@@ -21,6 +22,11 @@ class RuleTest {
     @Rule
     @JvmField
     val initRule = RuleChain.outerRule(InitRule())
+
+    @Before
+    fun init() {
+        InitData.getData()
+    }
 
     @Test
     fun testInit() {
